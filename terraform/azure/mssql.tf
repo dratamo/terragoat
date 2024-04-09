@@ -4,6 +4,7 @@ resource "azurerm_storage_account" "security_storage_account" {
   location                  = azurerm_resource_group.example.location
   account_tier              = "Standard"
   account_replication_type  = "LRS"
+  # Drata: Configure [azurerm_storage_account.account_replication_type] to improve infrastructure availability and resilience. To create highly available Storage Accounts, set azurerm_storage_account.account_replication_type to a geo-redundant storage option by selecting one of the following SKUs: ['standard_grs', 'standard_gzrs', 'standard_ragrs', 'standard_ragzrs', 'grs', 'gzrs', 'ragrs', 'ragzrs']
   enable_https_traffic_only = true
   tags = {
     git_commit           = "a1d1c1ce31a1bde6dafa188846d90eca82abe5fd"
@@ -21,7 +22,7 @@ resource "azurerm_mssql_server" "mssql1" {
   name                         = "terragoat-mssql1-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -40,7 +41,7 @@ resource "azurerm_mssql_server" "mssql2" {
   name                         = "mssql2-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -59,7 +60,7 @@ resource "azurerm_mssql_server" "mssql3" {
   name                         = "mssql3-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -78,7 +79,7 @@ resource "azurerm_mssql_server" "mssql4" {
   name                         = "mssql4-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -97,7 +98,7 @@ resource "azurerm_mssql_server" "mssql5" {
   name                         = "mssql5-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -116,7 +117,7 @@ resource "azurerm_mssql_server" "mssql6" {
   name                         = "mssql6-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
@@ -135,7 +136,7 @@ resource "azurerm_mssql_server" "mssql7" {
   name                         = "mssql7-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = "missadministrator"
   administrator_login_password = "AdminPassword123!"
   tags = {
